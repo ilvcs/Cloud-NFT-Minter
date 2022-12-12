@@ -32,8 +32,10 @@ function tokenURI(uint _tokenId) public view  override returns (string memory){
 }
 
   function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal override(ERC721, ERC721Enumerable) {
+    // This function make sure that the NFT cannot trnasfered after its got minted
+    require(from == address(0), "The NFT cannot be transferred");
     super._beforeTokenTransfer(from, to, tokenId);
-  }
+  } 
 
   function supportsInterface(bytes4 interfaceId) public view override(ERC721, ERC721Enumerable) returns (bool) {
     return super.supportsInterface(interfaceId);
