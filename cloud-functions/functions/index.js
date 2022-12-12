@@ -3,9 +3,12 @@ const admin = require('firebase-admin')
 const ethers = require('ethers');
 const {contractAddress_shine,contractAddress_ganache,contractAddress_mumbai, abi} = require('./abi.json')
 require('dotenv').config()
+
+// This is for temporary testing. Later the image might be different for each NFT.
 const IMAGE_URL = 'https://img.freepik.com/premium-vector/cute-cartoon-unicorn-pegasus-with-rainbow-mane_116089-138.jpg?w=2000'
+
 exports.awardToken = functions.https.onRequest(async(request, response) => {
-    const { userAddress  } = request.query
+    const { userAddress } = request.query
     // console.log(`userAddress: ${userAddress}`);
     // console.log(`contractAddress_ganache: ${contractAddress_ganache}`);
     // console.log(`abi: ${abi}`);
