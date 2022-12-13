@@ -8,10 +8,9 @@ const {
 	abi,
 } = require("./abi.json");
 require("dotenv").config();
-const IMAGE_URL =
-	"https://img.freepik.com/premium-vector/cute-cartoon-unicorn-pegasus-with-rainbow-mane_116089-138.jpg?w=2000";
+
 exports.awardToken = functions.https.onRequest(async (request, response) => {
-	const { userAddress } = request.query;
+	const { userAddress, ipfsCID } = request.query;
 	// console.log(`userAddress: ${userAddress}`);
 	// console.log(`contractAddress_ganache: ${contractAddress_ganache}`);
 	// console.log(`abi: ${abi}`);
@@ -25,7 +24,7 @@ exports.awardToken = functions.https.onRequest(async (request, response) => {
 		const provider = new ethers.providers.JsonRpcProvider(POLYGON_MUMBAI_URL);
 		const signer = new ethers.Wallet(POLYGON_MUMBAI_PRIVATEKEY, provider);
 		const contract = new ethers.Contract(contractAddress_mumbai, abi, signer);
-		const tx = await contract.mintAward(userAddress, IMAGE_URL);
+		const tx = await contract.mintAward(userAddress, ipfsCID);
 		const receipt = await tx.wait();
 		console.log(`receipt: ${tx.hash}`);
 		response.send({ hash: tx.hash });
