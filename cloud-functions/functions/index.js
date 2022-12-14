@@ -11,6 +11,8 @@ require("dotenv").config();
 
 exports.awardToken = functions.https.onRequest(async (request, response) => {
 	const { userAddress, ipfsCID } = request.query;
+	//WE WILL CALL TO THE DOCKER TO GET THE IAMGE
+	//const image = dockercall(user);
 	// console.log(`userAddress: ${userAddress}`);
 	// console.log(`contractAddress_ganache: ${contractAddress_ganache}`);
 	// console.log(`abi: ${abi}`);

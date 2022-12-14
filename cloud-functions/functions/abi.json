@@ -1,9 +1,8 @@
 {
     "contractAddress_shine": "0x5A926A85e3369Af3F585DfCf028d2e341E36f617",
     "contractAddress_ganache": "0x7a29d449836932fAa97177e1632C96c80e65dcd4",
-    "contractAddress_mumbai": "0x477788a1EB707508d7c0bDB7b3b310A5B1ccD198",
-    
-    "abi":[
+    "contractAddress_mumbai": "0xc87F1A9329B726DcA3ee6Cbe955e375F87F7Ad84" , 
+    "abi": [
       {
         "inputs": [],
         "stateMutability": "nonpayable",
@@ -433,4 +432,6 @@
         "type": "function"
       }
     ]
+    
+   
 }
